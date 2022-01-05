@@ -15,8 +15,8 @@
                 <button type="button" class="close">
                     <i class="icon_close"></i>
                 </button>
-                <form class="search-form">
-                    <input type="search" value="" placeholder="What are you looking for?" name="s">
+                <form class="search-form" method="GET">
+                    <input type="search"  placeholder="What are you looking for?" name="s">
                     <button type="submit" class="search-btn">search</button>
                 </form>
             </div>

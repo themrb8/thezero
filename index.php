@@ -38,8 +38,6 @@ get_header();
 
 						endwhile;
 
-						the_posts_navigation();
-
 					else :
 
 						get_template_part( 'template-parts/content', 'none' );
@@ -50,27 +48,7 @@ get_header();
 				</div>
 
 				<!--pagination-->
-				<div class="pagination mt-30">
-					<ul class="list-inline">
-						<li class="active">
-							<a href="#">1</a>
-						</li>
-						<li>
-							<a href="#">2</a>
-						</li>
-						<li>
-							<a href="#">3</a>
-						</li>
-						<li>
-							<a href="#">4</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="arrow_carrot-2right"></i>
-							</a>
-						</li>
-					</ul>
-				</div>
+				<?php get_template_part('template-parts/pagination'); ?>
 				<!--/-->
 			</div>
 			<div class="col-lg-4 max-width">
@@ -130,7 +108,6 @@ get_header();
 					</div>
 					<div class="widget-tags">
 						<?php get_template_part('template-parts/widgets/tags'); ?>
-						</ul>
 					</div>
 				</div>
 				<!--/-->

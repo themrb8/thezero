@@ -30,7 +30,7 @@
 </footer>
 
 <!--Search-form-->
-	<?php get_template_part('template-parts/page', 'search'); ?>
+	<?php get_template_part('template-parts', 'page-search'); ?>
 <!--/-->
 
 <?php wp_footer(); ?>

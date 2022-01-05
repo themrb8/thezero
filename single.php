@@ -57,66 +57,68 @@ get_header();
 					<div class="post-single-footer">
 						<div class="tags">
 							<ul class="list-inline">
-								<li>
-									<a href="blog-grid.html">Travel</a>
-								</li>
-								<li>
-									<a href="blog-grid.html">Nature</a>
-								</li>
-								<li>
-									<a href="blog-grid.html">tips</a>
-								</li>
-								<li>
-									<a href="blog-grid.html">forest</a>
-								</li>
-								<li>
-									<a href="blog-grid.html">beach</a>
-								</li>
+								<?php echo get_the_tag_list('<ul><li>', '</li><li>', '</li></ul>'); ?>
 							
 							</ul>
 						</div>
-						<div class="social-media">
-							<ul class="list-inline">
-								<li>
-									<a href="#" class="color-facebook">
-										<i class="fab fa-facebook"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="color-instagram">
-										<i class="fab fa-instagram"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="color-twitter">
-										<i class="fab fa-twitter"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="color-youtube">
-										<i class="fab fa-youtube"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="color-pinterest">
-										<i class="fab fa-pinterest"></i>
-									</a>
-								</li>
-							</ul>
-						</div>                           
+						<?php my_share_buttons(); ?>                         
 					</div>
 				</div> <!--/-->
 
 				<!--next & previous-posts-->
-				
 				<div class="row">
-				<?php the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'thezero' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'thezero' ) . '</span> <span class="nav-title">%title</span>',
-					)
-					);?>
-				</div><!--/-->
+					<?php
+						$prevPost = get_previous_post();
+						if(is_a($prevPost, 'WP_Post')):
+					?>
+                        <div class="col-md-6">
+                            <div class="widget">
+                                <div class="widget-next-post">
+                                    <div class="small-post">
+                                        <div class="image">
+                                            <a href="<?php echo get_permalink($prevPost->ID); ?>">
+                                            <?php echo get_the_post_thumbnail($prevPost->ID); ?>
+                                            </a>                                          
+                                        </div>
+                                        <div class="content">
+                                            <div>
+                                                <a class="link" href="<?php echo get_permalink($prevPost->ID); ?>"><i class="arrow_left"></i>Preview post</a>
+                                            </div>
+                                            <a href="<?php echo get_permalink($prevPost->ID); ?>"><?php echo get_the_title($prevPost->ID); ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<?php
+							endif;
+							$nextPost = get_next_post();
+							if(is_a($nextPost, 'WP_Post')):
+						?>
+                        <div class="col-md-6">
+                            <div class="widget">
+                                <div class="widget-previous-post">
+                                    <div class="small-post">
+                                        <div class="image">
+                                            <a href="<?php echo get_permalink($nextPost->ID); ?>">
+                                               <?php echo get_the_post_thumbnail($nextPost->ID); ?>
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <div>
+                                                <a class="link" href="<?php echo get_permalink($nextPost->ID); ?>">
+                                                    <span> Next post</span>
+                                                    <span class="arrow_right"></span>
+                                                </a>
+                                            </div>
+                                            <a href="<?php echo get_permalink($nextPost->ID); ?>"><?php echo get_the_title($nextPost->ID); ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<?php endif; ?>
+                    </div><!--/-->
 
 				<!--widget-comments-->
 				<div class="widget mb-50">
@@ -143,7 +145,7 @@ get_header();
 						<div class="social-media">
 							<ul class="list-inline">
 								<li>
-									<a href="#" class="color-facebook">
+									<a href="" class="color-facebook">
 										<i class="fab fa-facebook"></i>
 									</a>
 								</li>
