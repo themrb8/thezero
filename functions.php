@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', time() );
 }
 
 if ( ! function_exists( 'thezero_setup' ) ) :
@@ -97,10 +97,11 @@ if ( ! function_exists( 'thezero_setup' ) ) :
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 250,
+				'height'      => 100,
 				'width'       => 250,
 				'flex-width'  => true,
 				'flex-height' => true,
+				'header-text' => array('site-title', 'site-description'),
 			)
 		);
 	}
@@ -140,15 +141,40 @@ function thezero_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Instagram', 'thezero' ),
 			'id'            => 'instagram',
-			'description'   => esc_html__( 'Add widgets here.', 'thezero' ),
+			'description'   => esc_html__( 'Add instragram image here.', 'thezero' ),
 			'before_widget' => '<ul class="widget-instagram">',
 			'after_widget'  => '</ul>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer: Copyright', 'thezero' ),
+			'id'            => 'copyright',
+			'description'   => esc_html__( 'Add copyright here.', 'thezero' ),
+			'before_widget' => '<ul class="widget-instagram">',
+			'after_widget'  => '</ul>',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
 }
 add_action( 'widgets_init', 'thezero_widgets_init' );
+
+function thezero_protected_title_format() {
+	return "%s";
+}
+add_filter('protected_title_format', 'thezero_protected_title_format');
+
+function thezero_the_excerpt($excerpt){
+	if( !post_password_required() ) {
+		return $excerpt;
+	}else {
+		echo get_the_password_form();
+	}
+}
+add_filter('the_excerpt', 'thezero_the_excerpt');
 
 /**
  * Enqueue scripts and styles.
@@ -225,3 +251,6 @@ function my_share_buttons() {
 	$media = urlencode(get_the_post_thumbnail_url(get_the_ID(), 'full'));
 	include(locate_template('/template-parts/share.php', false, false));
 }
+
+
+require get_template_directory() . '/inc/better-comments.php';

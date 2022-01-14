@@ -440,7 +440,7 @@ ul {
 }
 
 .newslettre-form .form-group {
-  margin-bottom: 0;
+  margin-bottom: 1;
   width: 100%;
 }
 
@@ -885,6 +885,9 @@ input:checked + .slider:before {
 /* -----------------------------------
 		Navigation
 ----------------------------------- */
+.logged-in .fixed-top {
+  margin-top: 30px;
+}
 .navbar {
   background-color: #ffffff;
   padding: 15px 15px;
@@ -913,7 +916,7 @@ input:checked + .slider:before {
   display: block;
 }
 
-.navbar .menu-item .nav-link {
+.navbar-nav .menu-item a {
   font-weight: 700;
   color: #152035;
   font-size: 16px;
@@ -924,11 +927,11 @@ input:checked + .slider:before {
   position: relative;
 }
 
-.navbar .menu-item li a {
+.navbar .current-menu-item a {
   color: #f67280;
 }
 
-.navbar .menu-item .nav-link.active, .navbar .menu-item a:hover {
+.navbar .current-menu-item, .navbar .current-menu-item a:hover {
   color: #f67280 !important;
   background-color: transparent;
 }

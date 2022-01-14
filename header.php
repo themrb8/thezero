@@ -13,16 +13,12 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <!-- Meta -->
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta http-equiv="content-type" charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- favicon -->
-    <link rel="icon" sizes="16x16" href="assets/img/favicon.png">
 
     <!-- Title -->
     <title> <?php bloginfo('name'); ?> - <?php bloginfo('description'); ?> </title>
@@ -48,8 +44,8 @@
             <div class="logo">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<?php the_custom_logo(); ?>
-                    <img src="assets/img/logo-dark.png" alt="" class="logo-dark">
-                    <img src="assets/img/logo-white.png" alt="" class="logo-white">
+                    <!-- <img src="assets/img/logo-dark.png" alt="" class="logo-dark">
+                    <img src="assets/img/logo-white.png" alt="" class="logo-white"> -->
                 </a>
             </div>
             <!--/-->

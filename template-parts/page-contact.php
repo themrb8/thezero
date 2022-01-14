@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package mrb
+ * @package thezero
  */
 
 get_header();
@@ -27,7 +27,7 @@ get_header();
                     <div class="google-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7496149.95373021!2d85.84621250756469!3d23.452185887261447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30adaaed80e18ba7%3A0xf2d28e0c4e1fc6b!2sBangladesh!5e0!3m2!1sen!2sbd!4v1640613690899!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                    <form action="https://noonpost.netlify.app/html/template/assets/php/mail.php" class="widget-form contact_form " method="POST" id="main_contact_form">
+                    <form action="#" class="widget-form contact_form " method="POST" id="main_contact_form">
                         <?php echo do_shortcode('[contact-form-7 id="121" title="CF7 - The Zero"]'); ?>
                     </form>
                 </div> 
